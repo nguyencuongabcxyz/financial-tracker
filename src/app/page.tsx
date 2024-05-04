@@ -1,9 +1,12 @@
-import Image from "next/image";
+import { Button } from "@nextui-org/button";
 
 export default function Home() {
   return (
-    <main className="w-screen h-screen flex justify-center items-center">
+    <main>
       <h1>Hello World</h1>
+      <Button size="sm" radius="none">
+        Click Me
+      </Button>
     </main>
   );
 }
