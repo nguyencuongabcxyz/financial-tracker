@@ -32,22 +32,24 @@ const NavBar: React.FC = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="px-4 py-5 flex flex-col gap-1">
-      {navItems.map(({ title, href, icon }) => (
-        <div key={title}>
-          <NavBarItem
-            title={title}
-            href={href}
-            icon={icon}
-            active={pathname === href}
-          />
-        </div>
-      ))}
+    <nav className="px-4 py-5">
+      <ul className="flex flex-col gap-1">
+        {navItems.map(({ title, href, icon }) => (
+          <li key={title}>
+            <NavBarItem
+              title={title}
+              href={href}
+              icon={icon}
+              active={pathname === href}
+            />
+          </li>
+        ))}
+      </ul>
     </nav>
   );
 };
 
-export interface NavBarItem {
+interface NavBarItem {
   title: string;
   href: string;
   icon: React.ReactNode;

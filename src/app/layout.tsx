@@ -5,7 +5,6 @@ import HeaderBar from "./components/HeaderBar/HeaderBar";
 import NavBar from "./components/NavBar/NavBar";
 import "./globals.css";
 import { NextUIProviders } from "./providers/NextUIProvider";
-import CurrentNavItemProvider from "./providers/CurrentNavItemProvider";
 
 const dmSans = DM_Sans({ subsets: ["latin"] });
 
@@ -36,9 +35,7 @@ export default function RootLayout({
             </div>
             <div className="flex-grow flex flex-col">
               <div className="border-b-1">
-                <CurrentNavItemProvider>
-                  <HeaderBar />
-                </CurrentNavItemProvider>
+                <HeaderBar />
               </div>
               <div className="flex-grow p-6">{children}</div>
             </div>

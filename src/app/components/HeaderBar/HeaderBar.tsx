@@ -6,13 +6,11 @@ import { Badge, Button } from "@nextui-org/react";
 import { MdOutlineNotifications } from "react-icons/md";
 import { Avatar } from "@nextui-org/react";
 import { IoIosSearch } from "react-icons/io";
-import { CurrentNavItemContext } from "@/app/providers/CurrentNavItemProvider";
 
 const HeaderBar: React.FC = () => {
-  const currentNavItem = useContext(CurrentNavItemContext);
   return (
-    <div className="flex p-3 justify-between items-center">
-      <h1 className="font-bold text-lg">{currentNavItem.title}</h1>
+    <header className="flex p-3 justify-between items-center">
+      <h1 className="font-bold text-lg">{"Hello, Cuong Nguyen!"}</h1>
       <div className="flex gap-3">
         <Input
           startContent={<IoIosSearch />}
@@ -37,7 +35,7 @@ const HeaderBar: React.FC = () => {
           />
         </div>
       </div>
-    </div>
+    </header>
   );
 };
 
