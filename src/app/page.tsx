@@ -1,5 +1,5 @@
 import { Button } from "@nextui-org/button";
-import MoneySummaryCard from "./components/SummaryCard/MoneySummaryCard";
+import MoneySummaryCard from "./components/MoneySummaryCard/MoneySummaryCard";
 
 export default function Home() {
   return (

@@ -13,11 +13,11 @@ import { FiHelpCircle } from "react-icons/fi";
 export const navItems: NavBarItem[] = [
   { title: "Home", href: "/", icon: <GoHome size={20} /> },
   { title: "Transactions", href: "/transactions", icon: <BiBook size={20} /> },
-  { title: "Investment", href: "/investment", icon: <GrGrow size={20} /> },
+  { title: "Investments", href: "/investments", icon: <GrGrow size={20} /> },
   { title: "Goals", href: "/goals", icon: <GoGoal size={20} /> },
   {
-    title: "Budget",
-    href: "/budget",
+    title: "Budgets",
+    href: "/budgets",
     icon: <LuWallet size={20} />,
   },
   {
