@@ -1,6 +1,7 @@
 import React from "react";
 import classNames from "classnames";
 import { Chip } from "@nextui-org/chip";
+import { MoneyUtils } from "@/app/utils";
 
 interface MoneySummaryCardProps {
   title: string;
@@ -25,26 +26,19 @@ const MoneySummaryCard: React.FC<MoneySummaryCardProps> = ({
     >
       <h1 className="text-zinc-500 font-semibold text-sm">{title}</h1>
       <div className="flex items-center gap-3">
-        <p className="font-bold text-lg">{amount.toLocaleString()} VND</p>
-        {fluctuationPercentage > 0 ? (
-          <Chip
-            data-testid="positiveValue"
-            variant="flat"
-            size="sm"
-            color="success"
-          >
-            +{fluctuationPercentage}%
-          </Chip>
-        ) : (
-          <Chip
-            data-testid="negativeValue"
-            variant="flat"
-            size="sm"
-            color="danger"
-          >
-            {fluctuationPercentage}%
-          </Chip>
-        )}
+        <p className="font-bold text-lg">
+          {MoneyUtils.getNormalFormat(amount)}
+        </p>
+        <Chip
+          data-testid={
+            fluctuationPercentage >= 0 ? "positiveValue" : "negativeValue"
+          }
+          variant="flat"
+          size="sm"
+          color={fluctuationPercentage >= 0 ? "success" : "danger"}
+        >
+          {MoneyUtils.getFluctuatedPercentageFormat(fluctuationPercentage)}
+        </Chip>
       </div>
     </div>
   );

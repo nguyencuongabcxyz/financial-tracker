@@ -1,6 +1,7 @@
 import React from "react";
 import { getByTestId, render } from "@testing-library/react";
 import MoneySummaryCard from "../MoneySummaryCard";
+import { MoneyUtils } from "@/app/utils";
 
 describe("MoneySummaryCard component", () => {
   it("renders the title correctly", () => {
@@ -20,32 +21,38 @@ describe("MoneySummaryCard component", () => {
         fluctuationPercentage={0}
       />
     );
-    expect(getByText(amount.toLocaleString() + " VND")).toBeInTheDocument();
+    expect(getByText(MoneyUtils.getNormalFormat(amount))).toBeInTheDocument();
   });
 
-  it("renders the correct chip color for positive fluctuation percentage", () => {
+  it("renders the correct format of positive fluctuation percentage", () => {
+    const percentage = 10;
     const { getByTestId } = render(
       <MoneySummaryCard
         title="Total Balance"
         amount={1000}
-        fluctuationPercentage={10}
+        fluctuationPercentage={percentage}
       />
     );
-    expect(getByTestId("positiveValue")).toHaveTextContent("+10%");
+    expect(getByTestId("positiveValue")).toHaveTextContent(
+      MoneyUtils.getFluctuatedPercentageFormat(percentage)
+    );
   });
 
-  it("renders the correct chip color for negative fluctuation percentage", () => {
+  it("renders the correct format negative fluctuation percentage", () => {
+    const percentage = -10;
     const { getByTestId } = render(
       <MoneySummaryCard
         title="Total Balance"
         amount={1000}
-        fluctuationPercentage={-10}
+        fluctuationPercentage={percentage}
       />
     );
-    expect(getByTestId("negativeValue")).toHaveTextContent("-10%");
+    expect(getByTestId("negativeValue")).toHaveTextContent(
+      MoneyUtils.getFluctuatedPercentageFormat(percentage)
+    );
   });
 
-  it("applies custom className with it is provided", () => {
+  it("applies custom className when it is provided", () => {
     const { getByTestId } = render(
       <MoneySummaryCard
         title="Total Balance"

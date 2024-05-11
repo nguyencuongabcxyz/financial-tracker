@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import NavBarItem from "../NavBarItem";
+import NavBarItem, { activeClassNames } from "../NavBarItem";
 
 describe("NavBarItem component", () => {
   const title = "Home";
@@ -16,16 +16,12 @@ describe("NavBarItem component", () => {
   it("applies active styles when active prop is true", () => {
     render(<NavBarItem title={title} href={href} icon={icon} active={true} />);
     const navBarItem = screen.getByRole("link");
-    expect(navBarItem).toHaveClass("bg-zinc-200");
-    expect(navBarItem).toHaveClass("text-zinc-950");
-    expect(navBarItem).toHaveClass("font-semibold");
+    expect(navBarItem).toHaveClass(activeClassNames);
   });
 
   it("does not apply active styles when active prop is false", () => {
     render(<NavBarItem title={title} href={href} icon={icon} active={false} />);
     const navBarItem = screen.getByRole("link");
-    expect(navBarItem).not.toHaveClass("bg-zinc-200");
-    expect(navBarItem).not.toHaveClass("text-zinc-950");
-    expect(navBarItem).not.toHaveClass("font-semibold");
+    expect(navBarItem).not.toHaveClass(activeClassNames);
   });
 });

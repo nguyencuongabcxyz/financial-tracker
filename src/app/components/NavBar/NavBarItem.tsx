@@ -21,7 +21,7 @@ const NavBarItem: React.FC<NavBarItemProps> = ({
       className={classNames({
         "flex items-center hover:bg-zinc-300 hover:rounded-md p-3 gap-2 text-zinc-500 font-medium":
           true,
-        "bg-zinc-200 rounded-md p-3 gap-2 text-zinc-950 font-semibold": active,
+        [activeClassNames]: active,
       })}
     >
       {icon}
@@ -29,5 +29,8 @@ const NavBarItem: React.FC<NavBarItemProps> = ({
     </Link>
   );
 };
+
+export const activeClassNames =
+  "bg-zinc-200 rounded-md p-3 gap-2 text-zinc-950 font-semibold";
 
 export default NavBarItem;

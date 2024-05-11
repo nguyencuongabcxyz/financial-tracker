@@ -37,7 +37,7 @@ export default function RootLayout({
               <div className="border-b-1">
                 <HeaderBar />
               </div>
-              <div className="flex-grow p-6">{children}</div>
+              <div className="flex-grow p-4 pb-0 h-[1px]">{children}</div>
             </div>
           </div>
         </NextUIProviders>
