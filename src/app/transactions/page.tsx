@@ -3,11 +3,12 @@ import TransactionGroup from "./TransactionGroup/TransactionGroup";
 import TransactionActionBar from "./TransactionActionBar/TransactionActionBar";
 import { Transaction } from "./TransactionGroup/TransactionItem";
 import TransactionStatistics from "./TransactionStatistics/TransactionStatistics";
+import BudgetSummary from "./BudgetSummary/BudgetSummary";
 
 const Page: React.FC = () => {
   return (
     <div className="grid grid-cols-12 h-full">
-      <div className="flex flex-col col-span-8">
+      <div className="flex flex-col col-span-8 p-4 pb-0">
         <div className="flex justify-between">
           <h1 className="font-bold text-lg">Transactions</h1>
           <div>
@@ -25,11 +26,13 @@ const Page: React.FC = () => {
           ))}
         </ul>
       </div>
-      <div className="col-span-4">
-        <div className="w-full h-[400px]">
+      <div className="col-span-4 border-l-1 p-4 pb-0">
+        <div>
           <TransactionStatistics />
         </div>
-        <div></div>
+        <div>
+          <BudgetSummary />
+        </div>
       </div>
     </div>
   );

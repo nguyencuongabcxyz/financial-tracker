@@ -7,13 +7,17 @@ import BarChart from "./BarChart";
 function TransactionStatistics() {
   return (
     <div>
-      <h1>Transaction Statistics</h1>
-      <Tabs size="sm" aria-label="Options">
+      <h1 className="font-bold text-lg mb-2">Transaction Statistics</h1>
+      <Tabs className="w-full justify-center" size="sm" aria-label="Options">
         <Tab key="income" title="Income">
-          <BarChart />
+          <div className="h-[300px]">
+            <BarChart />
+          </div>
         </Tab>
         <Tab key="expense" title="Expense">
-          <BarChart />
+          <div className="h-[300px]">
+            <BarChart />
+          </div>
         </Tab>
       </Tabs>
     </div>

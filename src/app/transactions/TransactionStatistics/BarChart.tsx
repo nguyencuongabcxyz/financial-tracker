@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import { PieChart, Pie, Sector, Cell, ResponsiveContainer } from "recharts";
+import {
+  PieChart,
+  Pie,
+  Sector,
+  Cell,
+  ResponsiveContainer,
+  Legend,
+} from "recharts";
 
 const data = [
   { name: "Group A", value: 400 },
@@ -57,6 +64,7 @@ function BarChart() {
             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
           ))}
         </Pie>
+        <Legend verticalAlign="bottom" height={36} />
       </PieChart>
     </ResponsiveContainer>
   );
